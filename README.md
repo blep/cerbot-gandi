@@ -9,19 +9,14 @@ docker build . -t certbot-gandi:latest
 
 ## Generating a certificate using DNS Challenge
 
-Notes: you don't need the e-mail to be valid to generate the certificate. Command below will generate one certificates valid for example.com, *.example.com, and *.fwd.example.com. 
+Notes: you don't need the e-mail to be valid to generate the certificate. Command below will generate one certificates valid for example.com, *.example.com, and *.fwd.example.com.
 
 IMPORTANT: certificates and let's encrypt account data will be stored in `$HOME/webdata/letsencrypt`.
 
-You need to run this from a directory containing file `gandi.ini` with the following content:
+The GandiV5 API key is passed as the environment variable `GANDI_API_KEY` to the container (flag `-e` below).
 
 ```
-# Gandi live dns v5 api key
-certbot_plugin_gandi:dns_api_key=MYLIVEDNSAPIKEY
-```
-
-```
-docker run --rm -v `pwd`/gandi.ini:/config/gandi.ini -v$HOME/webdata/letsencrypt:/etc/letsencrypt/ certbot-gandi:latest certonly -a certbot-plugin-gandi:dns --agree-tos -m cerbot@example.com --non-interactive --certbot-plugin-gandi:dns-credentials /app/gandi.ini -d *.example.com -d example.com -d *.fwd.example.com
+docker run --rm -v$HOME/webdata/letsencrypt:/etc/letsencrypt/ -e GANDI_API_KEY=MYSECRETAPIKEY blep/certbot-gandi:latest certonly -a certbot-plugin-gandi:dns --agree-tos -m cerbot@example.com --non-interactive --certbot-plugin-gandi:dns-credentials /app/gandi.ini -d *.example.com -d example.com -d *.fwd.example.com
 ```
 
 Output:
