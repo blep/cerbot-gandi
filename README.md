@@ -46,3 +46,17 @@ IMPORTANT NOTES:
    Your cert will expire on 2020-05-21. To obtain a new or tweaked
    version of this certificate in the future, simply run certbot
 ``` 
+
+## Securing you API key
+
+A good article on options available to secure you GANDI API key:
+https://www.eff.org/deeplinks/2018/02/technical-deep-dive-securing-automation-acme-dns-challenge-validation
+
+## Related projects
+
+- https://github.com/obynio/certbot-plugin-gandi
+- https://hub.docker.com/r/certbot/certbot/dockerfile
+- https://github.com/certbot/certbot
+- https://letsencrypt.org/
+- https://community.letsencrypt.org/t/acme-v2-production-environment-wildcards/55578
+
