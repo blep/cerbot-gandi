@@ -21,7 +21,7 @@ certbot_plugin_gandi:dns_api_key=MYLIVEDNSAPIKEY
 ```
 
 ```
-docker run --rm -v `pwd`/gandi.ini:/config/gandi.ini -v$HOME/webdata/letsencrypt:/etc/letsencrypt/ certbot-gandi:latest certonly -a certbot-plugin-gandi:dns --agree-tos -m cerbot@example.com --non-interactive --certbot-plugin-gandi:dns-credentials /app/gandi.ini -d *.example.com -d example.com -d *.fwd.example.com
+docker run --rm -v `pwd`/gandi.ini:/config/gandi.ini -v$HOME/webdata/letsencrypt:/etc/letsencrypt/ blep/certbot-gandi:latest certonly -a certbot-plugin-gandi:dns --agree-tos -m cerbot@example.com --non-interactive --certbot-plugin-gandi:dns-credentials /app/gandi.ini -d *.example.com -d example.com -d *.fwd.example.com
 ```
 
 Output:
