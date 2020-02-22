@@ -21,12 +21,7 @@ docker run --rm -v$HOME/webdata/letsencrypt:/etc/letsencrypt/ -e GANDI_API_KEY=M
 
 Output:
 ``` 
-+ echo Copying /config/gandi.ini to /app/gandi.ini
-+ cp -p /config/gandi.ini /app/gandi.ini
-+ echo Fixing access right of /app/gandi.ini
-+ chmod 600 /app/gandi.ini
-Copying /config/gandi.ini to /app/gandi.ini
-Fixing access right of /app/gandi.ini
++ echo Writing GANDI_API_KEY environment variable to /app/gandi.ini
 Running certbot certonly -a certbot-plugin-gandi:dns --agree-tos -m cerbot@example.com --certbot-plugin-gandi:dns-credentials /app/gandi.ini -d *.example.com
 + echo Running certbot certonly -a certbot-plugin-gandi:dns --agree-tos -m cerbot@example.com --certbot-plugin-gandi:dns-credentials /app/gandi.ini -d '*.example.com'
 + certbot certonly -a certbot-plugin-gandi:dns --agree-tos -m cerbot@example.com --certbot-plugin-gandi:dns-credentials /app/gandi.ini -d '*.example.com'
@@ -46,6 +41,24 @@ IMPORTANT NOTES:
    Your cert will expire on 2020-05-21. To obtain a new or tweaked
    version of this certificate in the future, simply run certbot
 ``` 
+
+if the certificate is already up to date, the output will be similar to:
+```
++ echo Writing GANDI_API_KEY environment variable to /app/gandi.ini
++ chmod 600 /app/gandi.ini
++ echo Running certbot certonly -a certbot-plugin-gandi:dns --agree-tos -m cerbot@example.com --non-interactive --certbot-plugin-gandi:dns-credentials /app/gandi.ini -d '*.example.com' -d example.com -d '*.fwd.example.com'
++ certbot certonly -a certbot-plugin-gandi:dns --agree-tos -m cerbot@example.com --non-interactive --certbot-plugin-gandi:dns-credentials /app/gandi.ini -d '*.example.com' -d example.com -d '*.fwd.example.com'
+Writing GANDI_API_KEY environment variable to /app/gandi.ini
+Running certbot certonly -a certbot-plugin-gandi:dns --agree-tos -m cerbot@example.com --non-interactive --certbot-plugin-gandi:dns-credentials /app/gandi.ini -d *.example.com -d example.com -d *.fwd.example.com
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator certbot-plugin-gandi:dns, Installer None
+Cert not yet due for renewal
+Keeping the existing certificate
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Certificate not yet due for renewal; no action taken.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+```
 
 ## Securing you API key
 
