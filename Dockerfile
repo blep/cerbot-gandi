@@ -1,4 +1,5 @@
-FROM certbot/certbot:latest
+# FROM certbot/certbot:latest
+FROM certbot/certbot:v1.18.0
 
 RUN pip install certbot-plugin-gandi
 COPY ./certbot.sh /app/certbot.sh
