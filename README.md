@@ -1,4 +1,4 @@
-# cerbot-gandi
+# certbot-gandi
 Extend Certbot docker image to obtain Let's Encrypt certificates using DNS Challenge with GANDI.
 
 Notes: made for my personal use, use at your own risk. Feedbacks are welcome.
